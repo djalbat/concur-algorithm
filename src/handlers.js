@@ -3,7 +3,8 @@
 import UpdateTransaction from "./transaction/update";
 import InitialiseTransaction from "./transaction/initialise";
 
-import { CONTENT_TYPE, APPLICATION_JSON_CHARSET_UTF_8 } from "./constants";
+import { CONTENT_TYPE } from "./constants";
+import { APPLICATION_JSON_CHARSET_UTF_8_CONTENT_TYPE } from "./contentTypes";
 
 function createHandler(Transaction) {
   return function(request, response, next) {
@@ -19,7 +20,7 @@ function createHandler(Transaction) {
           headers = {},
           content = JSON.stringify(json);
 
-    headers[CONTENT_TYPE] = APPLICATION_JSON_CHARSET_UTF_8;
+    headers[CONTENT_TYPE] = APPLICATION_JSON_CHARSET_UTF_8_CONTENT_TYPE;
 
     response.writeHead(statusCode, headers);
 
