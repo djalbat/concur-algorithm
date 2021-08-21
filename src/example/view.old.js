@@ -4,19 +4,20 @@ import withStyle from "easy-with-style";
 
 import { Element } from "easy";
 
+import RichTextarea from "./richTextarea";
+
 class View extends Element {
   childElements() {
     const { agent } = this.properties;
 
     return (
 
-      <ul>
-        <li>
-          <h1>
-            Concur
-          </h1>
-        </li>
-      </ul>
+      <RichTextarea onChange={(event, element) => {
+
+                      agent.update();
+
+                    }}
+      />
 
     );
   }
@@ -26,6 +27,10 @@ class View extends Element {
   }
 
   static tagName = "div";
+
+  static ignoredProperties = [
+    "agent"
+  ];
 
   static defaultProperties = {
     className: "view"
